@@ -2,17 +2,18 @@
   "private": true,
   "scripts": {
     "build": "nuxt build",
-    "dev": "nuxt dev",
+    "dev": "nuxt dev --host",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare"
   },
   "devDependencies": {
-    "@nuxtjs/tailwindcss": "^6.3.0",
-    "nuxt": "^3.1.0"
+    "@nuxtjs/tailwindcss": "^6.9.4",
+    "nuxt": "^3.8.1"
   },
   "dependencies": {
-    "@headlessui/vue": "^1.7.8",
-    "@heroicons/vue": "^2.0.14"
+    "@headlessui/vue": "^1.7.16",
+    "@heroicons/vue": "^2.0.18",
+    "@pinia/nuxt": "^0.5.1"
   }
 }
