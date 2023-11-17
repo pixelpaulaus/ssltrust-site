@@ -10,7 +10,7 @@
                     </div>
                 </div>
                 <div class="col-span-8">
-                    <p class="max-w-7xl mx-auto mt-4 text-lg leading-8">An SSL Certificate (Secure Sockets Layer) secures all information transmitted between your website and customers. You provide individual users and small businesses with the same SSL/TLS encryption methods that banks, governments, and the military use. So, if you're looking to buy SSL Certificates, you've come to the right place, and we'll explain why!
+                    <p class="max-w-7xl mx-auto mt-4 text-lg leading-8">An {{ runtimeConfig.country.australia }} SSL Certificate (Secure Sockets Layer) secures all information transmitted between your website and customers. You provide individual users and small businesses with the same SSL/TLS encryption methods that banks, governments, and the military use. So, if you're looking to buy SSL Certificates, you've come to the right place, and we'll explain why!
                     <br><br>
                     Sending information online, protected by an SSL certificate, gets secured using 256-bit encryption or higher, which would take millions of years to crack by brute force. Also known as TLS (Transport Layer Security), this is the safest way to ensure the validity and reliability of all data sent and received online. Secure connections that use an SSL Certificate are much safer.</p>
                 </div>
@@ -62,8 +62,10 @@
     </div> 
 </template>
 <script setup lang="ts">
+    const runtimeConfig = useRuntimeConfig()
+
     useSeoMeta({
-    title: 'Buy SSL Certificates',
+    title: 'Buy SSL Certificates with ' + runtimeConfig.country.australian + ' Support',
     description: 'This is my amazing site, let me tell you all about it.',
     })
 

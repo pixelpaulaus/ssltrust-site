@@ -1,12 +1,26 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+  runtimeConfig: {
+    country: {
+      australia: 'Australia',
+      australias: 'Australia\'s',
+      australian: 'Australian'
+    },
+    currency: {
+      default: 'aud'
+    }
+  },
   modules: [
-    //'@nuxtjs/tailwindcss',
-    '@nuxt/ui',
+    '@nuxtjs/tailwindcss',
     '@nuxt/image',
   ],
   colorMode: {
     preference: 'light'
+  },
+  nitro: {
+    output: {
+      publicDir: process.env.NITRO_OUTPUT_PUBLICDIR || '.output/public_au'
+    }
   },
   image: {
     format: ['webp', 'png', 'jpg', 'jpeg'],

@@ -5,7 +5,9 @@
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev --host",
+    "devnz": "nuxt dev --host --dotenv=env/nz.env",
     "generate": "nuxt generate",
+    "generatenz": "nuxt generate --dotenv=env/nz.env",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare"
   },
@@ -13,13 +15,13 @@
     "@headlessui/vue": "^1.7.16",
     "@heroicons/vue": "^2.0.18",
     "@nuxt/devtools": "latest",
+    "@nuxtjs/tailwindcss": "^6.9.4",
     "nuxt": "^3.8.1",
     "video.js": "^8.6.1",
     "vue": "^3.3.8",
     "vue-router": "^4.2.5"
   },
   "dependencies": {
-    "@nuxt/image": "^1.0.0",
-    "@nuxt/ui": "^2.10.0"
+    "@nuxt/image": "^1.0.0"
   }
 }
