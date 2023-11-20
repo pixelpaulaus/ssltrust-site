@@ -1,14 +1,14 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   runtimeConfig: {
-    country: {
-      australia: 'Australia',
-      australias: 'Australia\'s',
-      australian: 'Australian'
-    },
-    currency: {
-      default: 'aud'
-    }
+      country: {
+        australia: 'Australia',
+        australias: 'Australia\'s',
+        australian: 'Australian'
+      },
+      currency: {
+        default: 'aud'
+      }
   },
   modules: [
     '@nuxtjs/tailwindcss',
