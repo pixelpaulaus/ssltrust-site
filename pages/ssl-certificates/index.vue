@@ -37,7 +37,7 @@
             <p class="mt-4 text-sm leading-6 text-gray-600">{{ certtype.description }}</p>
             <p class="mt-6 text-sm text-gray-400 flex-full">Lowest Price</p>
             <p class="flex items-baseline gap-x-1">
-              <span class="text-4xl font-bold tracking-tight text-gray-900">$123</span>
+              <span class="text-4xl font-bold tracking-tight text-gray-900">{{ prices.getCurrencySymbol }}123</span>
               <span class="text-sm font-semibold leading-6 text-gray-600">Per Year</span>
             </p>
             <NuxtLink :href="certtype.href" class="bg-blue-400 text-white mt-6 block rounded-md py-2 px-3 text-center text-sm font-semibold">View Certificates</NuxtLink>
@@ -73,15 +73,17 @@
 </template>
 <script setup lang="ts">
     const runtimeConfig = useRuntimeConfig().public
+    import { usePricesStore } from '~/stores/prices'
+    import {
+        PlayCircleIcon
+    } from '@heroicons/vue/24/outline'
 
     useSeoMeta({
     title: 'Buy SSL Certificates with ' + runtimeConfig.country.australian + ' Support',
     description: 'This is my amazing site, let me tell you all about it.',
     })
 
-    import {
-        PlayCircleIcon
-    } from '@heroicons/vue/24/outline'
+    const prices = usePricesStore()
 
     const showVideo = ref(false)
 

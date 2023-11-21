@@ -158,7 +158,7 @@
         <div class="hidden items-center justify-end md:flex md:flex-1 lg:w-0">
           <a href="#" class="whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900"><ShoppingCartIcon class="w-6 h-6 mr-3"/></a>
           <a href="#" class="whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900">Login</a>
-          <a href="#" class="ml-8 inline-flex items-center justify-center whitespace-nowrap rounded-lg border border-transparent bg-blue-500 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-blue-700">SSL Selector</a>
+          <a href="#" @click="showSelector" class="ml-8 inline-flex items-center justify-center whitespace-nowrap rounded-lg border border-transparent bg-blue-500 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-blue-700">SSL Selector</a>
         </div>
       </div>
 
@@ -228,8 +228,9 @@
     ChevronDownIcon,
     ArrowDownCircleIcon
   } from '@heroicons/vue/24/outline'
+  import { usePricesStore } from '~/stores/prices'
 
-
+  const prices = usePricesStore()
   const popoverHover = ref(false)
   const popoverTimeout = ref(null)
 
@@ -244,6 +245,10 @@
     popoverTimeout.value = setTimeout(() => {
       if (!popoverHover.value) close()
     }, 200)
+  }
+
+  const showSelector = () => {
+    prices.changeCurrency(4)
   }
 
   const certificates = [
