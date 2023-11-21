@@ -11,3 +11,7 @@ dist
 .vscode
 ._*
 .AppleDouble
+
+# Pinegrow
+_pgbackup
+_pginfo

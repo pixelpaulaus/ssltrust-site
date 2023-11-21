@@ -70,8 +70,6 @@
                             <p class="mt-1 text-sm text-gray-500">{{ certificate.description }}</p>
                           </div>
                         </NuxtLink>
-                      </div>
-                      <div class="bg-gray-50 p-5 sm:p-8 hidden lg:block">
                         <a href="#" class="-m-3 flow-root rounded-md p-3 hover:bg-gray-100">
                           <div class="flex items-center">
                             <div class="text-base font-medium text-gray-900">Not sure which Certificate you need?</div>
@@ -257,7 +255,13 @@
     },
     {
       name: 'Business SSL/TLS Certificates',
-      description: 'Secure with Higher Trust and shown as a Verified Business.',
+      description: 'Secure your Business and show your visitors your Verified.',
+      href: '#',
+      icon: CursorArrowRaysIcon,
+    },
+    {
+      name: 'Premium Business Certificates',
+      description: 'Secure with Higher Encryption and Business Verification',
       href: '#',
       icon: CursorArrowRaysIcon,
     },
