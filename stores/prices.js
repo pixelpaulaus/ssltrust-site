@@ -1,14 +1,20 @@
 import { defineStore } from 'pinia'
 
 export const usePricesStore = defineStore('prices', () => {
+    const DEFAULT_CURRENCY = useRuntimeConfig().public.currency.default;
+
     const prices = ref({})
-    const currency = ref(1) //default USD
+    const currency = ref(4) //default USD
+    const newCurrency = ref()
     // Getters
-    const getPrice = computed((state) => {
-        return (id) => {
-            //console.log('price asked:' + id)
-            //console.log('with currency:' + currency.value)
-            if (prices.value[currency.value] && prices.value[currency.value][id]) return prices.value[currency.value][id].p
+    const currencyLoading = computed(() => {
+        return !(newCurrency.value === currency.value)
+    })
+    const getPrice = computed(() => {
+        return (id, term = 1, forceCurrency = null) => {
+            if (prices.value[forceCurrency || currency.value] && prices.value[forceCurrency || currency.value][id]) {
+                return term === 1 ? prices.value[forceCurrency || currency.value][id].p : Number(prices.value[forceCurrency || currency.value][id].p / term).toFixed(2)
+            }
             return ''
         }
     })
@@ -27,26 +33,27 @@ export const usePricesStore = defineStore('prices', () => {
     // Actions
     async function fetchPrices(id) {
         if (prices.value[id]) {
-            console.log('prices already fetched')
+            //console.log('prices already fetched')
+            currency.value = id
             return
         }
         await $fetch('https://www.ssltrust.com.au/manager/price_data.php',{
             parseResponse: JSON.parse,
             lazy: true,
-            server: false,
             query: {
                 id: id
             }
         }).then((res) => {
-            //console.log('prices updates')
+            console.log('prices updates')
             prices.value[id] = res
+            currency.value = id
         })
     }
     function changeCurrency(id) {
-        currency.value = id
+        newCurrency.value = id
         fetchPrices(id)
     }
     // 
-    fetchPrices(1)
-    return {prices, currency, getPrice, getCurrencySymbol, fetchPrices, changeCurrency}
+    changeCurrency(DEFAULT_CURRENCY)
+    return {prices, currency, getPrice, getCurrencySymbol, fetchPrices, changeCurrency, currencyLoading, DEFAULT_CURRENCY}
 })

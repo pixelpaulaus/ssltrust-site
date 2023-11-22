@@ -8,7 +8,7 @@ export default defineNuxtConfig({
         australian: 'Australian'
       },
       currency: {
-        default: 'aud'
+        default: 1
       }
     }
   },
@@ -16,6 +16,7 @@ export default defineNuxtConfig({
     '@nuxtjs/tailwindcss',
     '@nuxt/image',
     '@pinia/nuxt',
+    '@element-plus/nuxt'
   ],
   colorMode: {
     preference: 'light'
@@ -24,6 +25,10 @@ export default defineNuxtConfig({
     output: {
       publicDir: process.env.NITRO_OUTPUT_PUBLICDIR || '.output/public_au'
     }
+  },
+  elementPlus: {
+    icon: false,
+    //importStyle: false,
   },
   image: {
     format: ['webp', 'png', 'jpg', 'jpeg'],

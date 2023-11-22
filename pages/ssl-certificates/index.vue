@@ -16,7 +16,7 @@
                 </div>
             </div>
             <div v-show="showVideo" class="max-w-xl my-10 mx-auto drop-shadow-lg">
-                <LazyVideoPlayer v-if="showVideo" :options="{autoplay: true, controls: true, fluid: true, sources: [{src: 'https://verokey-cdn.b-cdn.net/video/intro_720.mp4', type: 'video/mp4'}]}"/>
+                <LazyVideoPlayer v-if="showVideo" :options="{sources: [{src: 'https://verokey-cdn.b-cdn.net/video/intro_720.mp4', type: 'video/mp4'}]}"/>
                 <button class=" text-gray-400 hover:text-blue-300 m-2 text-sm" @click="showVideo = false">Close Video</button>
             </div>
         </div>
@@ -36,11 +36,9 @@
             <h3 class="text-gray-900 text-lg font-semibold leading-8">{{ certtype.name }}</h3>
             <p class="mt-4 text-sm leading-6 text-gray-600">{{ certtype.description }}</p>
             <p class="mt-6 text-sm text-gray-400 flex-full">Lowest Price</p>
-            <p class="flex items-baseline gap-x-1">
-              <span class="text-4xl font-bold tracking-tight text-gray-900">{{ prices.getCurrencySymbol }}123</span>
-              <span class="text-sm font-semibold leading-6 text-gray-600">Per Year</span>
-            </p>
-            <NuxtLink :href="certtype.href" class="bg-blue-400 text-white mt-6 block rounded-md py-2 px-3 text-center text-sm font-semibold">View Certificates</NuxtLink>
+            <p class="text-4xl font-bold tracking-tight text-gray-900" v-loading="prices.currencyLoading">{{ prices.getCurrencySymbol }}{{ prices.getPrice(certtype.product, certtype.term) }}</p>
+            <p class="text-sm font-semibold leading-6 text-gray-600">Per Year</p>
+            <NuxtLink :href="certtype.href" class="bg-blue-400 text-white mt-6 block rounded-md py-2 px-3 text-center text-sm font-semibold hover:bg-blue-600">View Certificates</NuxtLink>
           </div>
         </div>
 
@@ -93,12 +91,16 @@
                 href: '#standard',
                 description: 'Secure your domain quick, easy and at a low price.',
                 features: ['Domain Validated', 'Single Domain or IP', 'Fast Issuance'],
+                product: 361,
+                term: 3
             },
             {
                 name: 'Wildcard',
                 href: '#',
                 description: 'Secure your main domain with unlimited sub-domains.',
                 features: ['Unlimited Sub-Domains', 'Domain or Business Validated', ''],
+                product: 419,
+                term: 3
             },
             {
                 name: 'Business',
@@ -108,7 +110,9 @@
                     '25 products',
                     'Up to 10,000 subscribers',
                     'Advanced analytics',
-                ]
+                ],
+                product: 403,
+                term: 5
             },
             {
                 name: 'Multi-Domain',
@@ -118,7 +122,9 @@
                     'Unlimited products',
                     'Unlimited subscribers',
                     'Advanced analytics',
-                ]
+                ],
+                product: 380,
+                term: 5
             },
             {
                 name: 'Code Signing',
@@ -128,7 +134,9 @@
                     'Unlimited products',
                     'Unlimited subscribers',
                     'Advanced analytics',
-                ]
+                ],
+                product: 373,
+                term: 5
             },
             {
                 name: 'Email (S/MIME)',
@@ -138,7 +146,9 @@
                     'Unlimited products',
                     'Unlimited subscribers',
                     'Advanced analytics',
-                ]
+                ],
+                product: 369,
+                term: 3
             },
         ]
 

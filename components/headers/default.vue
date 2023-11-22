@@ -14,8 +14,9 @@
           <div class="flex">
             <label for="desktop-currency" class="sr-only">Currency</label>
             <div class="group relative rounded-md border-transparent bg-blue-700 focus-within:ring-2 focus-within:ring-white">
-              <select id="desktop-currency" name="currency" class="flex items-center rounded-md border-transparent bg-blue-700 bg-none py-0.5 pl-2 pr-5 text-sm font-medium focus:border-transparent focus:outline-none focus:ring-0 group-hover:text-gray-100">
-                <option v-for="currency in currencies" :key="currency">{{ currency }}</option>
+              <select id="desktop-currency" name="currency" class="flex items-center rounded-md border-transparent bg-blue-700 bg-none py-0.5 pl-2 pr-5 text-sm font-medium focus:border-transparent focus:outline-none focus:ring-0 group-hover:text-gray-100"
+              v-model="currencySelected" @change="prices.changeCurrency(currencySelected)">
+                <option v-for="currency in currencies" :key="currency.id" :value="currency.id">{{ currency.code }}</option>
               </select>
             </div>
           </div>
@@ -234,6 +235,8 @@
   const popoverHover = ref(false)
   const popoverTimeout = ref(null)
 
+  const currencySelected = ref(1)
+
   const hoverPopover = (e, open) => {
     popoverHover.value = true
     if (!open) e.target.click()
@@ -309,7 +312,15 @@
     },
   ]
 
-  const currencies = ['AUD', 'CAD', 'USD', 'EUR', 'GBP']
+  const currencies = [
+    {code: 'AUD', id: 1},
+    {code: 'USD', id: 4},
+    {code: 'CAD', id: 7},
+    {code: 'GBP', id: 6},
+    {code: 'EUR', id: 8},
+    {code: 'NZD', id: 5},
+    {code: 'CNY', id: 9}
+  ]
 
   const brands = [
     {
@@ -354,4 +365,8 @@
     { name: 'Events', description: 'See what meet-ups and other events we might be planning near you.', href: '#' },
     { name: 'Security', description: 'Understand how we take your privacy seriously.', href: '#' },
   ]
+
+  onMounted(() => {
+    currencySelected.value = prices.DEFAULT_CURRENCY
+  })
   </script>
