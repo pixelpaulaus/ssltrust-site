@@ -4,15 +4,15 @@
             <h1 class="mx-auto max-w-4xl text-center text-5xl font-bold tracking-tight">Buy SSL Certificates with Top Security at the Lowest Prices.</h1>
             <div class="grid grid-cols-1 md:grid-cols-12 my-10 gap-3 md:gap-14" v-show="!showVideo">
                 <div class="col-span-1 md:col-span-4 order-last md:order-first pl-3 drop-shadow-md">
-                    <div class="relative w-1/2 md:w-full mx-auto md:mt-16 rounded-md overflow-hidden group hover:cursor-pointer" @click="showVideo = true">
+                    <div class="relative w-1/2 md:w-full mx-auto md:mt-8 rounded-md overflow-hidden group hover:cursor-pointer" @click="showVideo = true">
                         <NuxtPicture class="" src="/assets/img/video-ssl-certificates.jpg"/>
                         <button class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-blue-500 group-hover:text-white p-2 rounded-full group-hover:rounded-lg group-hover:bg-blue-500/60"><PlayCircleIcon class="w-20"/><span class="hidden group-hover:contents">Play Video</span></button>
                     </div>
                 </div>
                 <div class="col-span-1 md:col-span-8">
-                    <p class="max-w-7xl mx-auto md:mt-4 text-lg leading-8">An SSL Certificate (Secure Sockets Layer) secures all information transmitted between your website and customers. You provide individual users and small businesses with the same SSL/TLS encryption methods that banks, governments, and the military use. So, if you're looking to buy SSL Certificates, you've come to the right place, and we'll explain why!
+                    <p class="max-w-7xl mx-auto md:mt-4 text-lg leading-8">An SSL Certificate (Secure Sockets Layer) secures all information transmitted between your website and customers. SSLTrust provides individuals and organisations with the same SSL/TLS encryption methods that banks, governments, and the military use. From online messaging to credit card details, traffic on your website is safely and impenetrably shielded.
                     <br><br>
-                    Sending information online, protected by an SSL certificate, gets secured using 256-bit encryption or higher, which would take millions of years to crack by brute force. Also known as TLS (Transport Layer Security), this is the safest way to ensure the validity and reliability of all data sent and received online. Secure connections that use an SSL Certificate are much safer.</p>
+                    These Digital Certificates are available in a variety of types to help secure your website, service, code or email in the best possible while also being easy and cost-effective.</p>
                 </div>
             </div>
             <div v-show="showVideo" class="max-w-xl my-10 mx-auto drop-shadow-lg">
@@ -42,38 +42,33 @@
           </div>
         </div>
 
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        hi
+        <div class="py-20 mx-auto max-w-7xl px-6 lg:px-8 mt-20">
+        <div class="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-3">
+            <div>
+            <h2 class="text-base font-semibold leading-7 text-indigo-600">Why Choose SSLTrust?</h2>
+            <p class="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">What comes with your SSL Certificate:</p>
+            <p class="mt-6 text-base leading-7 text-gray-600">We are Australia’s largest and most affordable SSL provider. We make sure you have everything you need to get up and secured faster.<br><br>
+            Here are a few reasons you’ll be thrilled with your SSL Certificate purchase with SSLTrust.</p>
+            </div>
+            <dl class="col-span-2 grid grid-cols-1 gap-x-8 gap-y-10 text-base leading-7 text-gray-600 sm:grid-cols-2 lg:gap-y-16">
+            <div v-for="item in whyChoose" :key="item.name" class="relative pl-9">
+                <dt class="font-semibold text-gray-900">
+                <CheckIcon class="absolute left-0 top-1 h-5 w-5 text-indigo-500" aria-hidden="true" />
+                {{ item.name }}
+                </dt>
+                <dd class="mt-2">{{ item.description }}</dd>
+            </div>
+            </dl>
+        </div>
+        </div>
     </div> 
 </template>
 <script setup lang="ts">
     const runtimeConfig = useRuntimeConfig().public
     import { usePricesStore } from '~/stores/prices'
     import {
-        PlayCircleIcon
+        PlayCircleIcon,
+        CheckIcon
     } from '@heroicons/vue/24/outline'
 
     useSeoMeta({
@@ -150,6 +145,32 @@
                 product: 369,
                 term: 3
             },
+        ]
+
+        const whyChoose = [
+        {
+            name: '256 Encryption and Greater',
+            description: 'We dont just provide Certificates with the minimum SHA-2 and 2048-bit Encryption. We have Certificates available with higher encryptions for better security.',
+        },
+        { 
+            name: 'Padlocked and Secure',
+            description: 'Your site will display the secure padlock in your visitors browser along with additional indicators such as Verified  Details and Seals.' },
+        {
+            name: 'Trust Seal',
+            description: 'Each SSL/TLS Certificate we sell comes with a Trust Seal that verifies your customers\' data is safe and secure. Business Certificates also show your verified Business.',
+        },
+        {
+            name: 'Australian Support Team',
+            description: 'Our goal is to get you secure quickly and easily, with support tailored to suit your needs. Our support team is here for you, offering online, onsite and remote assistance.',
+        },
+        {
+            name: '30-Day Refund',
+            description: 'For your peace of mind, we offer a 30-day refund policy with every SSL/TLS Certificate purchased.',
+        },
+        {
+            name: 'Improved Conversion Rate',
+            description: 'When you buy SSL Certificates and install them on your website, you can expect substantially increased conversion rates from visitors to paying customers.',
+        },
         ]
 
 </script>
