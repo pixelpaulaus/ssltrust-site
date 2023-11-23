@@ -38,17 +38,18 @@
             <p class="mt-6 text-sm text-gray-400 flex-full">Lowest Price</p>
             <p class="text-4xl font-bold tracking-tight text-gray-900" v-loading="prices.currencyLoading">{{ prices.getCurrencySymbol }}{{ prices.getPrice(certtype.product, certtype.term) }}</p>
             <p class="text-sm font-semibold leading-6 text-gray-600">Per Year</p>
-            <NuxtLink :href="certtype.href" class="bg-blue-400 text-white mt-6 block rounded-md py-2 px-3 text-center text-sm font-semibold hover:bg-blue-600">View Certificates</NuxtLink>
+            <NuxtLink :href="certtype.href" class="bg-blue-400 text-white mt-6 block rounded-md py-2 px-3 text-center text-sm font-semibold hover:bg-blue-600">View<span class="hidden sm:inline">Certificates</span></NuxtLink>
           </div>
         </div>
 
         <div class="py-20 mx-auto max-w-7xl px-6 lg:px-8 mt-20">
         <div class="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-3">
             <div>
-            <h2 class="text-base font-semibold leading-7 text-indigo-600">Why Choose SSLTrust?</h2>
-            <p class="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">What comes with your SSL Certificate:</p>
-            <p class="mt-6 text-base leading-7 text-gray-600">We are Australia’s largest and most affordable SSL provider. We make sure you have everything you need to get up and secured faster.<br><br>
+            <h2 class="text-base font-semibold leading-7 text-blue-600">Why Choose SSLTrust?</h2>
+            <p class="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">What comes with your SSL Certificate...</p>
+            <p class="mt-6 text-base leading-7 text-gray-600">We are {{ runtimeConfig.country.australias }} largest and most affordable SSL provider, and we do out best make sure you have everything you need to get up and secured faster.<br><br>
             Here are a few reasons you’ll be thrilled with your SSL Certificate purchase with SSLTrust.</p>
+            <NuxtImg src="/assets/img/ssl-certification-features-list.svg" class="p-10"/>
             </div>
             <dl class="col-span-2 grid grid-cols-1 gap-x-8 gap-y-10 text-base leading-7 text-gray-600 sm:grid-cols-2 lg:gap-y-16">
             <div v-for="item in whyChoose" :key="item.name" class="relative pl-9">
