@@ -31,7 +31,7 @@
             </button>
             </div>
         </div>
-        <div class="isolate mx-auto grid grid-cols-3 gap-3 md:max-w-2xl lg:max-w-4xl xl:max-w-7xl xl:grid-cols-6">
+        <div class="isolate mx-auto grid grid-cols-2 sm:grid-cols-3 gap-3 md:max-w-2xl lg:max-w-4xl xl:max-w-7xl xl:grid-cols-6">
           <div v-for="certtype in certTypes" class="ring-1 ring-gray-200 rounded p-4">
             <h3 class="text-gray-900 text-lg font-semibold leading-8">{{ certtype.name }}</h3>
             <p class="mt-4 text-sm leading-6 text-gray-600">{{ certtype.description }}</p>
@@ -41,8 +41,8 @@
             <NuxtLink :href="certtype.href" class="bg-blue-400 text-white mt-6 block rounded-md py-2 px-3 text-center text-sm font-semibold hover:bg-blue-600">View<span class="hidden sm:inline">Certificates</span></NuxtLink>
           </div>
         </div>
-
-        <div class="py-20 mx-auto max-w-7xl px-6 lg:px-8 mt-20">
+        <ContentBrandsRow class="py-20"/>
+        <div class="py-10 mx-auto max-w-7xl px-6 lg:px-8">
         <div class="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-3">
             <div>
             <h2 class="text-base font-semibold leading-7 text-blue-600">Why Choose SSLTrust?</h2>
@@ -67,6 +67,7 @@
 <script setup lang="ts">
     const runtimeConfig = useRuntimeConfig().public
     import { usePricesStore } from '~/stores/prices'
+
     import {
         PlayCircleIcon,
         CheckIcon
@@ -80,6 +81,8 @@
     const prices = usePricesStore()
 
     const showVideo = ref(false)
+
+
 
     const certTypes = [
             {

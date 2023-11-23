@@ -110,17 +110,14 @@
             </PopoverButton>
 
             <transition enter-active-class="transition ease-out duration-200" enter-from-class="opacity-0 translate-y-1" enter-to-class="opacity-100 translate-y-0" leave-active-class="transition ease-in duration-150" leave-from-class="opacity-100 translate-y-0" leave-to-class="opacity-0 translate-y-1">
-              <PopoverPanel class="absolute z-10 -ml-4 w-screen max-w-xs transform px-2 sm:px-0 lg:left-1/2 lg:ml-0 lg:-translate-x-1/2"
+              <PopoverPanel class="absolute z-10 -ml-4 w-screen max-w-[200px] transform px-2 sm:px-0 lg:left-1/2 lg:ml-0 lg:-translate-x-1/2"
               @mouseover.prevent="popoverHover = true"
               @mouseleave.prevent="closePopover(close)"
               >
                 <div class="overflow-hidden rounded-lg shadow-lg ring-1 ring-black ring-opacity-5">
                   <div class="relative grid gap-6 bg-white px-5 py-6 sm:gap-8 sm:p-8">
                     <a v-for="item in brands" :key="item.name" :href="item.href" class="-m-3 flex items-start rounded-lg p-3 hover:bg-gray-50">
-                      <component :is="item.icon" class="h-6 w-6 flex-shrink-0 text-indigo-600" aria-hidden="true" />
-                      <div class="ml-4">
-                        <p class="text-base font-medium text-gray-900">{{ item.name }}</p>
-                      </div>
+                      <img :src="item.logo" :alt="item.name" class="p-1 w-3/ mx-auto"/>
                     </a>
                   </div>
                 </div>
@@ -230,7 +227,8 @@
     ArrowDownCircleIcon
   } from '@heroicons/vue/24/outline'
   import { usePricesStore } from '~/stores/prices'
-
+  import brands from '~/json/brands.json'
+  
   const prices = usePricesStore()
   const popoverHover = ref(false)
   const popoverTimeout = ref(null)
@@ -320,39 +318,6 @@
     {code: 'EUR', id: 8},
     {code: 'NZD', id: 5},
     {code: 'CNY', id: 9}
-  ]
-
-  const brands = [
-    {
-      name: 'GeoTrust',
-      href: '#',
-      icon: ChartBarIcon,
-    },
-    {
-      name: 'Comodo',
-      href: '#',
-      icon: CursorArrowRaysIcon,
-    },
-    {
-      name: 'Sectigo',
-      href: '#',
-      icon: Squares2X2Icon,
-    },
-    {
-      name: 'DigiCert',
-      href: '#',
-      icon: Squares2X2Icon,
-    },
-    {
-      name: 'Thawte',
-      href: '#',
-      icon: ArrowPathIcon,
-    },
-    {
-      name: 'RapidSSL',
-      href: '#',
-      icon: DocumentChartBarIcon,
-    },
   ]
 
   const resources = [
