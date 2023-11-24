@@ -2,36 +2,36 @@
     {
         "name": "Verokey",
         "href": "#",
-        "logo": "assets/img/verokey-logo.svg"
+        "logo": "/assets/img/verokey-logo.svg"
     },
     {
         "name": "GeoTrust",
         "href": "#",
-        "logo": "assets/img/geotrust-logo.svg"
+        "logo": "/assets/img/geotrust-logo.svg"
     },
     {
         "name": "Sectigo",
         "href": "#",
-        "logo": "assets/img/sectigo-logo.svg"
+        "logo": "/assets/img/sectigo-logo.svg"
     },
     {
         "name": "DigiCert",
         "href": "#",
-        "logo": "assets/img/digicert-logo.svg"
+        "logo": "/assets/img/digicert-logo.svg"
     },
     {
         "name": "Thawte",
         "href": "#",
-        "logo": "assets/img/thawte-logo.svg"
+        "logo": "/assets/img/thawte-logo.svg"
     },
     {
         "name": "Comodo",
         "href": "#",
-        "logo": "assets/img/comodo-logo.svg"
+        "logo": "/assets/img/comodo-logo.svg"
     },
     {
         "name": "RapidSSL",
         "href": "#",
-        "logo": "assets/img/rapidssl-logo.svg"
+        "logo": "/assets/img/rapidssl-logo.svg"
     }
 ]

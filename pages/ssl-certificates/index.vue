@@ -5,7 +5,7 @@
             <div class="grid grid-cols-1 md:grid-cols-12 my-10 gap-3 md:gap-14" v-show="!showVideo">
                 <div class="col-span-1 md:col-span-4 order-last md:order-first pl-3 drop-shadow-md">
                     <div class="relative w-1/2 md:w-full mx-auto md:mt-8 rounded-md overflow-hidden group hover:cursor-pointer" @click="showVideo = true">
-                        <NuxtPicture class="" src="/assets/img/video-ssl-certificates.jpg"/>
+                        <NuxtImg src="/assets/img/video-ssl-certificates.jpg" width="335" height="197" />
                         <button class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-blue-500 group-hover:text-white p-2 rounded-full group-hover:rounded-lg group-hover:bg-blue-500/60"><PlayCircleIcon class="w-20"/><span class="hidden group-hover:contents">Play Video</span></button>
                     </div>
                 </div>
@@ -16,7 +16,7 @@
                 </div>
             </div>
             <div v-show="showVideo" class="max-w-xl my-10 mx-auto drop-shadow-lg">
-                <LazyVideoPlayer v-if="showVideo" :options="{sources: [{src: 'https://verokey-cdn.b-cdn.net/video/intro_720.mp4', type: 'video/mp4'}]}"/>
+                <LazyVideoPlayer v-if="showVideo" :options="{sources: [{src: 'https://verokey-cdn.b-cdn.net/video/intro_720.mp4'}]}"/>
                 <button class=" text-gray-400 hover:text-blue-300 m-2 text-sm" @click="showVideo = false">Close Video</button>
             </div>
         </div>
@@ -49,7 +49,7 @@
             <p class="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">What comes with your SSL Certificate...</p>
             <p class="mt-6 text-base leading-7 text-gray-600">We are {{ runtimeConfig.country.australias }} largest and most affordable SSL provider, and we do out best make sure you have everything you need to get up and secured faster.<br><br>
             Here are a few reasons you’ll be thrilled with your SSL Certificate purchase with SSLTrust.</p>
-            <NuxtImg src="/assets/img/ssl-certification-features-list.svg" class="p-10"/>
+            <img src="/assets/img/ssl-certification-features-list.svg" class="p-10"/>
             </div>
             <dl class="col-span-2 grid grid-cols-1 gap-x-8 gap-y-10 text-base leading-7 text-gray-600 sm:grid-cols-2 lg:gap-y-16">
             <div v-for="item in whyChoose" :key="item.name" class="relative pl-9">
@@ -73,16 +73,22 @@
         CheckIcon
     } from '@heroicons/vue/24/outline'
 
-    useSeoMeta({
-    title: 'Buy SSL Certificates with ' + runtimeConfig.country.australian + ' Support',
-    description: 'This is my amazing site, let me tell you all about it.',
+    buildPageHead({
+        title: 'Buy SSL Certificates with ' + runtimeConfig.country.australian + ' Support',
+        description: 'This is my amazing site, let me tell you all about it.',
     })
+
+    //useHead({
+    //title: 'Buy SSL Certificates with ' + runtimeConfig.country.australian + ' Support',
+    //meta: [{name: 'description', content:'This is my amazing site, let me tell you all about it.',}],
+    //link: [
+    //    {rel: 'alternate', href: 'https://www.ssltrust.com.au/', hreflang: 'en-US'}
+    //]
+    //})
 
     const prices = usePricesStore()
 
     const showVideo = ref(false)
-
-
 
     const certTypes = [
             {
@@ -164,11 +170,11 @@
             description: 'Each SSL/TLS Certificate we sell comes with a Trust Seal that verifies your customers\' data is safe and secure. Business Certificates also show your verified Business.',
         },
         {
-            name: 'Australian Support Team',
+            name: runtimeConfig.country.australian + ' Support Team',
             description: 'Our goal is to get you secure quickly and easily, with support tailored to suit your needs. Our support team is here for you, offering online, onsite and remote assistance.',
         },
         {
-            name: '30-Day Refund',
+            name: '30-Day Refund Policy',
             description: 'For your peace of mind, we offer a 30-day refund policy with every SSL/TLS Certificate purchased.',
         },
         {

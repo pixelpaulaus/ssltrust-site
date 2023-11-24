@@ -11,6 +11,7 @@
     autoplay: true,
     controls: true,
     fluid: true, 
+    type: 'video/mp4'
   }
   export default {
     name: 'VideoPlayer',

@@ -73,7 +73,7 @@
     </div> 
 </template>
 <script setup lang="ts">
-    useSeoMeta({
+    buildPageHead({
         title: 'SSLTrust',
         description: 'ssltrust home page description',
     })

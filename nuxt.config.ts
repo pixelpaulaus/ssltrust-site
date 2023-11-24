@@ -3,6 +3,8 @@ export default defineNuxtConfig({
   runtimeConfig: {
     public: {
       country: {
+        tld: 'com.au',
+        //code: 'AU',
         australia: 'Australia',
         australias: 'Australia\'s',
         australian: 'Australian'
@@ -31,13 +33,14 @@ export default defineNuxtConfig({
     //importStyle: false,
   },
   image: {
-    format: ['webp', 'png', 'jpg', 'jpeg'],
+    format: ['avif','webp','png','jpg'],
     screens: {
+      'xxs': 150,
       'xs': 320,
       'sm': 640,
       'md': 768,
       'lg': 1024,
-    }
+    },
   },
   components: [
     {
